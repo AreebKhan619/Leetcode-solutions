@@ -9,10 +9,13 @@ var maxProfit = function (prices) {
 
   while (rightIdx < prices.length) {
     // if at any moment we come across a value in the next day where the price is lower, we can put the 'buy' time for that day.
-    if (prices[rightIdx] <  prices[leftIdx]) {
+    const priceForSell = prices[rightIdx];
+    const priceForBuy = prices[leftIdx];
+
+    if (priceForSell < priceForBuy) {
       leftIdx = rightIdx;
     } else {
-      profit = Math.max(prices[rightIdx] - prices[leftIdx], profit);
+      profit = Math.max(priceForSell - priceForBuy, profit);
     }
     rightIdx++;
   }
