@@ -4,13 +4,14 @@
  * @return {number[]}
  */
 var twoSum = function (nums, target) {
-  let idx = 0;
-  while (idx < nums.length) {
-    const subIdx = nums
-      .slice(idx + 1)
-      .findIndex((el) => el === target - nums[idx]);
-    if (subIdx > -1) return [idx, idx + 1 + subIdx];
-    idx++;
+  let leftIdx, rightIdx;
+  let maxIdx = nums.length - 1;
+  for (leftIdx = 0, rightIdx = maxIdx; leftIdx <= maxIdx - 1; rightIdx--) {
+    if(nums[leftIdx]+nums[rightIdx]===target) return [leftIdx, rightIdx]
+    if (rightIdx === leftIdx + 1){
+      rightIdx = maxIdx+1;
+      leftIdx++;
+    };
   }
-  return nums;
+  return -1
 };
