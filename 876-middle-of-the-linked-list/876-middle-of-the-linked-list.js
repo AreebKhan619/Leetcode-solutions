@@ -14,11 +14,13 @@ var middleNode = function (head) {
   fastPointer = head;
 
   while (fastPointer) {
-    if (fastPointer.next) {
-      fastPointer = fastPointer.next.next;
-    } else {
-      return mainPointer;
+    if (!fastPointer.next) {
+        return mainPointer;
     }
+      else if(!fastPointer.next.next){
+          return mainPointer.next
+      }
+    fastPointer = fastPointer.next.next;
     mainPointer = mainPointer.next;
   }
   return mainPointer
