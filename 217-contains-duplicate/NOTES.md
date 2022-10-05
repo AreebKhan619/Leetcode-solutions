@@ -1,1 +1,2 @@
-​
+We create a Set from the array. And in a set, **only unique elements are present**
+If the length of the Set (as described by the `size` property) is the sam as the length of the original array, then the original array does not contain a duplicate. Otherwise it does.
