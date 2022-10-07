@@ -22,7 +22,7 @@ var plusOne = function (digits) {
     digits[index] = nthPlaceValue;
     // if the addition has finished, i.e., no more carrying is required, return the array
     if (!toCarry) return digits;
-    else if (index === 0 && toCarry) return [1].concat(digits);
+    else if (index === 0 && toCarry) return [1, ...digits];
     else index--;
   }
 };
