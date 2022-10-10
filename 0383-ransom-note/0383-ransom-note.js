@@ -17,7 +17,7 @@ var canConstruct = function (ransomNote, magazine) {
   }
 
   for (const i of magazine) {
-    const val = mapping[i];
+    var val = mapping[i];
     if (val) {
       if (val === 1) {
         delete mapping[i];
