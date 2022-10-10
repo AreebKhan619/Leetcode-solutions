@@ -13,8 +13,7 @@ var canConstruct = function (ransomNote, magazine) {
   for (const i of magazine) {
     if (mapping[i] === 1) delete mapping[i];
     else if (mapping[i]) mapping[i] = mapping[i] - 1;
-    if (!Object.keys(mapping).length) return true;
   }
 
-  return false;
+  return !Object.keys(mapping).length;
 };
