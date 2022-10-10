@@ -5,15 +5,29 @@
  */
 var canConstruct = function (ransomNote, magazine) {
   const mapping = {};
+  let keysLength = 0;
 
   for (const i of ransomNote) {
-    mapping[i] = (mapping[i] || 0) + 1;
+    if (mapping[i]) {
+      mapping[i]++;
+    } else {
+      mapping[i] = 1;
+      keysLength++;
+    }
   }
 
   for (const i of magazine) {
-    if (mapping[i] === 1) delete mapping[i];
-    else if (mapping[i]) mapping[i] = mapping[i] - 1;
+    const val = mapping[i];
+    if (val) {
+      if (val === 1) {
+        delete mapping[i];
+        keysLength--;
+      } else {
+        mapping[i] = mapping[i] - 1;
+      }
+    }
+    if (!keysLength) return true;
   }
 
-  return !Object.keys(mapping).length;
+  return false;
 };
