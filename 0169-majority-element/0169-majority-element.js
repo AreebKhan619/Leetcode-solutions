@@ -4,11 +4,12 @@
  */
 var majorityElement = function (nums) {
   const minOcc = Math.floor(nums.length / 2);
-  const mappObj = {};
-
+  const map = new Map();
+  let count;
   for (const iterator of nums) {
-    mappObj[iterator] = (mappObj[iterator] || 0) + 1;
-    if (mappObj[iterator] > minOcc) return iterator;
+    count = map.get(iterator) || 0;
+    map.set(iterator, count + 1);
+    if (count + 1 > minOcc) return iterator;
   }
 
   return minOcc;
