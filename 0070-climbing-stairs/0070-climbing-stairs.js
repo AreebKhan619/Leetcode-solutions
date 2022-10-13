@@ -7,7 +7,7 @@ var climbStairs = function (n) {
   let last = 1;
   let i = 1;
   while (i <= n) {
-    let ways = 0;
+    var ways = 0;
     if (i - 2 >= 0) {
       ways += secondLast;
     }
