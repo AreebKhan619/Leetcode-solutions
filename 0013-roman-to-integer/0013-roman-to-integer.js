@@ -15,13 +15,13 @@ const map = {
 var romanToInt = function (s) {
   let total = 0,
     prevVal = 0;
-  for (const i in s) {
-    let val = map[s[i]];
+  for(let i=0;i<s.length;i++){
+        let val = map[s[i]];
     total += val;
     if (prevVal < val) {
       total -= 2 * prevVal;
     }
-    prevVal = val;
+    prevVal = val;  
   }
   return total;
 };
