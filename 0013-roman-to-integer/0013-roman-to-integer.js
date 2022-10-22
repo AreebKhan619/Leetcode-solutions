@@ -16,7 +16,7 @@ var romanToInt = function (s) {
   let total = 0,
     prevVal = 0;
   for (const i in s) {
-    let val = map[s.charAt(i)];
+    let val = map[s[i]];
     total += val;
     if (prevVal < val) {
       total -= 2 * prevVal;
