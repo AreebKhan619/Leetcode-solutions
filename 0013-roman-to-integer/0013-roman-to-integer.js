@@ -24,7 +24,7 @@ const getVal = (s) => {
  * @return {number}
  */
 var romanToInt = function (s) {
-  let total = 0,
+  var total = 0,
     prevVal = 0, val;
   for (const i in s) {
     val = getVal(s[i]);
