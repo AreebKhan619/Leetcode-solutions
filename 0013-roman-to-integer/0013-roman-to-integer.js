@@ -25,9 +25,9 @@ const getVal = (s) => {
  */
 var romanToInt = function (s) {
   let total = 0,
-    prevVal = 0;
+    prevVal = 0, val;
   for (const i in s) {
-    let val = getVal(s[i]);
+    val = getVal(s[i]);
     total += val;
     if (prevVal < val) {
       total -= 2 * prevVal;
