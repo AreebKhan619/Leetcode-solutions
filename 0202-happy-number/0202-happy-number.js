@@ -9,7 +9,7 @@ var isHappy = function (n) {
   while (!map[num]) {
     sum = 0;
     for (idx in num) {
-      sum += num[idx] * num[idx];
+      sum += Math.pow(num[idx], 2);
     }
     if (sum === 1) return true;
     map[num] = true;
