@@ -5,9 +5,8 @@
 var isHappy = function (n) {
   const map = {};
   let num = n.toString();
-  let sum;
   while (!map[num]) {
-    sum = 0;
+    let sum = 0;
     for (const idx in num) {
       sum += num[idx] * num[idx];
     }
