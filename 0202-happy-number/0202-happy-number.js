@@ -4,11 +4,11 @@
  */
 var isHappy = function (n) {
   const map = {};
-  let num = n.toString();
-
+  var num = n.toString();
+  var sum, idx
   while (!map[num]) {
-    let sum = 0;
-    for (const idx in num) {
+    sum = 0;
+    for (idx in num) {
       sum += num[idx] * num[idx];
     }
     if (sum === 1) return true;
