@@ -3,7 +3,7 @@
  * @return {string[]}
  */
 var letterCombinations = function (digits) {
-  let res = new Set();
+  let res = [];
   const mapping = {
     2: ["a", "b", "c"],
     3: ["d", "e", "f"],
@@ -16,8 +16,8 @@ var letterCombinations = function (digits) {
   };
 
   for (const num of digits) {
-    if (!res.size) {
-      res = new Set([...mapping[num]]);
+    if (!res.length) {
+      res = mapping[num]
     } else {
       const sth = [];
       const arr = mapping[num];
@@ -26,9 +26,9 @@ var letterCombinations = function (digits) {
           sth.push(`${el}${a}`);
         });
       });
-      res = new Set(sth);
+      res = sth
     }
   }
 
-  return Array.from(res);
+  return res;
 };
