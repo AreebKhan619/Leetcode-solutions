@@ -11,7 +11,6 @@ var convertToTitle = function (columnNumber) {
     quotient = LETTERS_IN_ALPHABET;
     dividend--;
   }
-  console.log(dividend, quotient);
   suffix = cols[quotient - 1] + suffix;
   if (dividend <= LETTERS_IN_ALPHABET) {
     suffix = cols[dividend - 1] + suffix;
