@@ -3,15 +3,15 @@
  * @return {number}
  */
 var singleNumber = function(arr) {
-  let pair = {};
+  let pairMap = new Map();
 
   arr.forEach(el => {
-    if (pair[el]) {
-      delete pair[el];
+    if (pairMap.has(el)) {
+        pairMap.delete(el)
     } else {
-      pair[el] = true;
+        pairMap.set(el, true)
     }
   });
 
-  return Object.keys(pair)[0];
+  return pairMap.keys().next().value
 };
