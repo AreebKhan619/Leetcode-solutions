@@ -3,20 +3,21 @@
  * @return {number[]}
  */
 var sortedSquares = function (nums) {
-  const resArr = [];
+  const resArr = new Array(nums.length).fill(0);
   let leftIdx = 0,
-    rightIdx = nums.length - 1;
+    rightIdx = nums.length - 1, resIdx = rightIdx;
 
-  while (leftIdx <= rightIdx) {
+  while (resIdx > -1) {
     const leftSq = Math.pow(nums[leftIdx], 2);
     const rightSq = Math.pow(nums[rightIdx], 2);;
     if (leftSq > rightSq) {
-      resArr.unshift(leftSq);
+      resArr[resIdx] = leftSq;
       leftIdx++;
     } else {
-      resArr.unshift(rightSq);
+      resArr[resIdx] = rightSq;
       rightIdx--;
     }
+      resIdx--;
   }
   return resArr;
 };
