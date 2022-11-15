@@ -15,9 +15,9 @@ var levelOrder = function (root) {
 
   const getLevel = (node, level) => {
     if (node) {
-      const arr = traversalArr[level] || [];
-      if (node.val!==null) arr.push(node.val);
-      traversalArr[level] = arr;
+      if (node.val!==null){
+           traversalArr[level] = [...(traversalArr[level] || []),node.val]
+      }
       getLevel(node.left, level + 1);
       getLevel(node.right, level + 1);
     }
