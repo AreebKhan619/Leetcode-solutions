@@ -3,5 +3,5 @@
  * @return {number}
  */
 var distributeCandies = function (candyType) {
-  return Math.min(Math.floor(candyType.length / 2), new Set(candyType).size);
+  return Math.min((candyType.length / 2), new Set(candyType).size);
 };
