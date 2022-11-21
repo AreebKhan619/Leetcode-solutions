@@ -3,7 +3,7 @@
  * @return {number}
  */
 var missingNumber = function (nums) {
-  let expectedTotal = nums.length,
+  var expectedTotal = 0,
     actualTotal = 0;
 
   nums.forEach((num, idx) => {
@@ -11,5 +11,5 @@ var missingNumber = function (nums) {
     actualTotal += num;
   });
 
-  return expectedTotal - actualTotal;
+  return expectedTotal - actualTotal + nums.length;
 };
