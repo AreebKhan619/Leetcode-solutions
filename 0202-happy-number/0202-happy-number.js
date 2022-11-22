@@ -3,7 +3,7 @@
  * @return {boolean}
  */
 var isHappy = function (n) {
-  const map = {};
+  const map = new Map();
 
   const getSum = (num) => {
     if (num === 1) return true;
@@ -12,8 +12,8 @@ var isHappy = function (n) {
       sum += Math.pow(num % 10, 2);
       num = Math.floor(num / 10);
     }
-    if (map[sum]) return false;
-    map[sum] = true;
+    if (map.get(sum)) return false;
+    map.set(sum, true)
     return getSum(sum);
   };
 
