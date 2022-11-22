@@ -9,8 +9,7 @@ var isHappy = function (n) {
     if (num === 1) return true;
     sum = 0;
     while (num > 0) {
-      const currNum = num % 10;
-      sum += Math.pow(currNum, 2);
+      sum += Math.pow(num % 10, 2);
       num = Math.floor(num / 10);
     }
     if (map[sum]) return false;
