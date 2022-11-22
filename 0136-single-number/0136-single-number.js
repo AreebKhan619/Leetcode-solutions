@@ -3,12 +3,11 @@
  * @return {number}
  */
 var singleNumber = function(arr) {
-  const pairMap = {}
-   
-  for(el of arr){
-     if(pairMap[el]) delete pairMap[el]
-     else pairMap[el] = true
-  }  
+  const pairMap = new Map();
+        
+  arr.forEach(el => {
+      pairMap.has(el) ? pairMap.delete(el) : pairMap.set(el, true)
+  });
 
-  return Object.keys(pairMap)[0]
+  return pairMap.keys().next().value
 };
