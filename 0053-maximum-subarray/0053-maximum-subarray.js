@@ -4,9 +4,11 @@
  */
 var maxSubArray = function (nums) {
   let totalMaxSum = 0,
-    localMaxSum = 0;
+    localMaxSum = 0,
+    maxNum = -10000;
 
   for (const num of nums) {
+    maxNum=Math.max(num, maxNum)
     if (num + localMaxSum < 1) {
       totalMaxSum = Math.max(totalMaxSum, localMaxSum);
       localMaxSum = 0;
@@ -17,6 +19,6 @@ var maxSubArray = function (nums) {
       localMaxSum += num;
     }
   }
-  totalMaxSum = Math.max(totalMaxSum, localMaxSum) || Math.max(...nums);
+  totalMaxSum = Math.max(totalMaxSum, localMaxSum) || maxNum;
   return totalMaxSum;
 };
