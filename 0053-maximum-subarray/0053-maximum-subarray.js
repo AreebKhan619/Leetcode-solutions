@@ -7,8 +7,8 @@ var maxSubArray = function (nums) {
     localMaxSum = 0,
     maxNum = -10000;
 
-  for (const num of nums) {
-    maxNum=Math.max(num, maxNum)
+  nums.forEach(num=>{
+  maxNum=Math.max(num, maxNum)
     if (num + localMaxSum < 1) {
       totalMaxSum = Math.max(totalMaxSum, localMaxSum);
       localMaxSum = 0;
@@ -18,7 +18,8 @@ var maxSubArray = function (nums) {
       }
       localMaxSum += num;
     }
-  }
+})
+
   totalMaxSum = Math.max(totalMaxSum, localMaxSum) || maxNum;
   return totalMaxSum;
 };
