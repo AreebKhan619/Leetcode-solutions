@@ -14,11 +14,9 @@ var postorderTraversal = function(root) {
     const result = [];
     
     const traverse = (node) => {
-        if(node){
-            traverse(node.left);
-        traverse(node.right);
-        result.push(node.val)
-        }
+        node?.left && traverse(node.left);
+        node?.right && traverse(node.right);
+        node && result.push(node.val)
     }
     
     traverse(root);
