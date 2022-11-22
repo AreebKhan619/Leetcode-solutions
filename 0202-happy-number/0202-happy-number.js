@@ -3,17 +3,20 @@
  * @return {boolean}
  */
 var isHappy = function (n) {
-  const s = new Set();
-  const getSumOfSquares = (num) => {
-    if (s.has(num)) return false;
-    let sum = 0;
-    for (const idx in num) {
-      sum += num[idx] * num[idx];
+  const map = {};
+
+  const getSum = (num) => {
+    if (num === 1) return true;
+    sum = 0;
+    while (num > 0) {
+      const currNum = num % 10;
+      sum += Math.pow(currNum, 2);
+      num = Math.floor(num / 10);
     }
-    if (sum === 1) return true;
-    s.add(num);
-    return getSumOfSquares(sum + "");
+    if (map[sum]) return false;
+    map[sum] = true;
+    return getSum(sum);
   };
 
-  return getSumOfSquares(n + "");
+  return getSum(n);
 };
