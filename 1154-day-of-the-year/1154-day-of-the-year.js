@@ -7,13 +7,11 @@ var dayOfYear = function (d) {
 
   let daysTillTheStartOfMonth = 0;
   for (let index = 1; index < month; index++) {
-    let addDays = 30;
     if (index > 7) {
-      index % 2 ? null : (addDays += 1);
-    } else {
-      index % 2 ? (addDays += 1) : null;
-    }
-    daysTillTheStartOfMonth += addDays;
+      if (!(index % 2)) daysTillTheStartOfMonth += 31;
+        else daysTillTheStartOfMonth += 30;
+    } else if (index % 2) daysTillTheStartOfMonth += 31;
+    else daysTillTheStartOfMonth += 30;
   }
 
   if (month > 2) {
@@ -21,7 +19,6 @@ var dayOfYear = function (d) {
     if (!(year % 2)) {
       const FIRST_LEAP_YEAR = 1904;
       if (!((year % FIRST_LEAP_YEAR) % 4)) {
-        console.log("LEAP YEAR FOUND");
         if (year !== 1900) subtractForFeb--;
       }
     }
