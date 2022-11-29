@@ -1,5 +1,5 @@
 var rotateRight = function (head, k) {
-    if (!head || !k) return head;
+  if (!head || !k) return head;
   let length = 0;
   let currentNode = head;
 
@@ -12,7 +12,7 @@ var rotateRight = function (head, k) {
   if (k > length) {
     k = k % length;
   }
-  if (!head || !k) return head;
+  if (!k) return head;
 
   let currLen = 0;
   currentNode = head;
