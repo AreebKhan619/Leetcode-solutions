@@ -1,4 +1,10 @@
-const isSymbol = (char) => {
+/**
+ * @param {string[]} tokens
+ * @return {number}
+ */
+var evalRPN = function (tokens) {
+    
+    const isSymbol = (char) => {
   switch (char) {
     case "*":
     case "+":
@@ -24,11 +30,8 @@ const calculate = (left, right, operand) => {
   }
 };
 
-/**
- * @param {string[]} tokens
- * @return {number}
- */
-var evalRPN = function (tokens) {
+    
+    
   if (tokens.length === 1) return tokens[0];
 
   let idx = 0;
