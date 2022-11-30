@@ -31,17 +31,16 @@ const calculate = (left, right, operand) => {
 var evalRPN = function (tokens) {
   if (tokens.length === 1) return tokens[0];
 
-  const getRes = (idx1, idx2, idx3) => {
-    return calculate(tokens[idx1], tokens[idx2], tokens[idx3]);
-  };
-
-  let idx = tokens.findIndex((el) => isSymbol(el));
+  let idx = 0;
   let ans;
 
   while (idx > -1 && idx < tokens.length) {
-    ans = getRes(idx - 2, idx - 1, idx);
-    tokens.splice(idx - 2, 3, `${ans}`);
-    idx = tokens.findIndex((el) => isSymbol(el));
+    if (isSymbol(tokens[idx])) {
+      ans = calculate(tokens[idx - 2], tokens[idx - 1], tokens[idx]);
+      tokens.splice(idx - 2, 3, `${ans}`);
+      idx = idx - 2;
+    }
+    idx++;
   }
 
   return ans;
